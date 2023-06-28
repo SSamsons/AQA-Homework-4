@@ -27,5 +27,8 @@ public class RegistrationTest { ;
         $("[data-test-id='agreement']").click();
         $$("[type=button]").filter(visible).get(1).click();
         $("[data-test-id='notification']").shouldBe(visible, Duration.ofSeconds(15));
+        $(".notification__content")
+                .shouldHave(text("Встреча успешно забронирована на " + currentDate), Duration.ofSeconds(15))
+                .shouldBe(visible);
     }
 }
